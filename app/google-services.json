@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "871984905252",
+    "firebase_url": "https://chatting-app-for-ttranslation.firebaseio.com",
+    "project_id": "chatting-app-for-ttranslation",
+    "storage_bucket": "chatting-app-for-ttranslation.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:871984905252:android:04974492d0316f4ac5acb1",
+        "android_client_info": {
+          "package_name": "gujc.directtalk9"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "871984905252-tirqb7fcqipg2c1vr6jpqf77ocp074tj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "gujc.directtalk9",
+            "certificate_hash": "d716bba507ee42024e6c44b1c62281d89150290c"
+          }
+        },
+        {
+          "client_id": "871984905252-un77gu801ngsj0lqnenb2ob80k52mpt0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4v0JPKJDEdntVV49imWW40DiG834Peqo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "871984905252-un77gu801ngsj0lqnenb2ob80k52mpt0.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
