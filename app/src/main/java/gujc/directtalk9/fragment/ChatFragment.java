@@ -30,6 +30,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
@@ -138,10 +139,11 @@ public class ChatFragment extends Fragment{
 
         msg_input = view.findViewById(R.id.msg_input);
         sendBtn = view.findViewById(R.id.sendBtn);
+        //translateBtn=view.findViewById(R.id.translationbutton);
         sendBtn.setOnClickListener(sendBtnClickListener);
+        //translateBtn.setOnClickListener(translateBtnListener);
 
-        view.findViewById(R.id.imageBtn).setOnClickListener(imageBtnClickListener);
-        view.findViewById(R.id.fileBtn).setOnClickListener(fileBtnClickListener);
+
         view.findViewById(R.id.msg_input).setOnFocusChangeListener(new View.OnFocusChangeListener() {
             @Override
             public void onFocusChange(View v, boolean hasFocus) {
@@ -316,6 +318,7 @@ public class ChatFragment extends Fragment{
         }
     };
 
+
     private void sendMessage(final String msg, String msgtype, final ChatModel.FileInfo fileinfo) {
         sendBtn.setEnabled(false);
 
@@ -412,15 +415,7 @@ public class ChatFragment extends Fragment{
         }
     };
 
-    // choose file
-    Button.OnClickListener fileBtnClickListener = new View.OnClickListener() {
-        public void onClick(final View view) {
-            Intent intent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-            intent.setType("*/*");
-            intent.setAction(Intent.ACTION_GET_CONTENT);
-            startActivityForResult(Intent.createChooser(intent, "Select File"), PICK_FROM_FILE);
-        }
-    };
+
 
     // uploading image / file
     @Override
@@ -575,19 +570,20 @@ public class ChatFragment extends Fragment{
         }
 
         @Override
-        public int getItemViewType(int position) {
+        public int getItemViewType(int position) {                    //서로 자리 switching
             Message message = messageList.get(position);
+
             if (myUid.equals(message.getUid()) ) {
                 switch(message.getMsgtype()){
-                    case "1": return R.layout.item_chatimage_right;
+                    case "1": return R.layout.item_chatfile_right;
                     case "2": return R.layout.item_chatfile_right;
-                    default:  return R.layout.item_chatmsg_right;
+                    default:  return R.layout.item_chatfile_right;
                 }
             } else {
                 switch(message.getMsgtype()){
-                    case "1": return R.layout.item_chatimage_left;
+                    case "1": return R.layout.item_chatfile_left;
                     case "2": return R.layout.item_chatfile_left;
-                    default:  return R.layout.item_chatmsg_left;
+                    default:  return R.layout.item_chatfile_left;
                 }
             }
         }
@@ -608,6 +604,7 @@ public class ChatFragment extends Fragment{
 
             if ("0".equals(message.getMsgtype())) {                                      // text message
                 messageViewHolder.msg_item.setText(message.getMsg());
+                messageViewHolder.button_item.setText("Translate");    //translate setting
             } else
             if ("2".equals(message.getMsgtype())) {                                      // file transfer
                 messageViewHolder.msg_item.setText(message.getFilename() + "\n" + message.getFilesize());
@@ -629,7 +626,7 @@ public class ChatFragment extends Fragment{
 
             if (! myUid.equals(message.getUid())) {
                 UserModel userModel = userList.get(message.getUid());
-                messageViewHolder.msg_name.setText(userModel.getUsernm());
+                messageViewHolder.msg_name.setText(userModel.getUsernm());//유저 네임 가져옴
 
                 if (userModel.getUserphoto()==null) {
                     Glide.with(getContext()).load(R.drawable.user)
@@ -705,7 +702,7 @@ public class ChatFragment extends Fragment{
 
     }
 
-    private class MessageViewHolder extends RecyclerView.ViewHolder {
+    private class MessageViewHolder extends RecyclerView.ViewHolder {      //image,file view
         public ImageView user_photo;
         public TextView msg_item;
         public ImageView img_item;          // only item_chatimage_
@@ -718,6 +715,7 @@ public class ChatFragment extends Fragment{
         public LinearLayout msgLine_item;       // only item_chatfile_
         public String filename;
         public String realname;
+        private Context context;
 
         public MessageViewHolder(View view) {
             super(view);
@@ -731,20 +729,27 @@ public class ChatFragment extends Fragment{
             divider_date = view.findViewById(R.id.divider_date);
             button_item = view.findViewById(R.id.button_item);
             msgLine_item = view.findViewById(R.id.msgLine_item);        // for file
+            //translateBtn=view.findViewById(R.id.translationbutton);
             if (msgLine_item!=null) {
-                msgLine_item.setOnClickListener(downloadClickListener);
+                msgLine_item.setOnClickListener(translateClickListener);
             }
+           // if (translateBtn!=null) {
+               // translateBtn.setOnClickListener(translateClickListener); //for translate
+           // }
             if (img_item!=null) {                                       // for image
                 img_item.setOnClickListener(imageClickListener);
             }
         }
-        // file download and open
-        Button.OnClickListener downloadClickListener = new View.OnClickListener() {
+        // translate button
+        Button.OnClickListener translateClickListener = new View.OnClickListener() {
             public void onClick(View view) {
-                if ("Download".equals(button_item.getText())) {
-                    download();
+                if ("Translate".equals(button_item.getText())) {
+                    //showProgressDialog("Downloading File.");
+                    Toast.makeText(view.getContext(),"translate",Toast.LENGTH_LONG).show();
+
+                    //download();
                 } else {
-                    openWith();
+                    //openWith();
                 }
             }
             public void download() {
