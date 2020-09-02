@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="gujc.directtalk9">
+    package="gujc.cat">
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".SplashActivity"
+            android:name="gujc.cat.SplashActivity"
             android:label="@string/app_name"
             android:theme="@style/SplashTheme">
             <intent-filter>
@@ -26,17 +26,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name="gujc.cat.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".chat.ChatActivity" android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".chat.SelectUserActivity" />
-        <activity android:name=".UserPWActivity"></activity>
-        <activity android:name=".photoview.ViewPagerActivity" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="gujc.cat.LoginActivity" />
+        <activity android:name="gujc.cat.chat.ChatActivity" android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name="gujc.cat.chat.SelectUserActivity" />
+        <activity android:name="gujc.cat.UserPWActivity"></activity>
+        <activity android:name="gujc.cat.photoview.ViewPagerActivity" android:theme="@style/AppTheme.NoActionBar" />
 
-        <service android:name=".common.MyFirebaseMessagingService">
+        <service android:name="gujc.cat.common.MyFirebaseMessagingService">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>

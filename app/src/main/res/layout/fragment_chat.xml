@@ -17,17 +17,6 @@
         android:layout_weight="1"
         android:orientation="horizontal">
 
-        <Button
-            android:id="@+id/imageBtn"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/ic_menu_gallery" />
-
-        <Button
-            android:id="@+id/fileBtn"
-            android:layout_width="40dp"
-            android:layout_height="wrap_content"
-            android:background="@android:drawable/ic_menu_save" />
 
         <EditText
             android:id="@+id/msg_input"

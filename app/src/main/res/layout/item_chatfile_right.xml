@@ -96,7 +96,7 @@
                 android:textAlignment="center"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Download"/>
+                android:text="Trans"/>
         </LinearLayout>
     </LinearLayout>
 </LinearLayout>

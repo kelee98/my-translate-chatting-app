@@ -7,7 +7,7 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
-        android:src="@drawable/splash"
+        android:src="@drawable/cat"
         android:layout_gravity="center"/>
 
 </LinearLayout>
