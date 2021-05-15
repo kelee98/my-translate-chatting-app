@@ -1,34 +1,15 @@
-# DirectTalk9 #
-This is a messenger app for Android based on Firebase (Cloud Firestore and Realtime Database) for live chat.
+# CAT(chat for automatic translate)
 
-This app is suitable for enterprise messenger where all users appears because there is no management function such as add / delete / find friends.
+### 사용기술 ###
+- 안드로이드 스튜디오
+- 데이터 베이스:파이어베이스 
+- api :naver papago api
 
-![Screenshot](./Screenshot.png)
-
-### BRANCHES ###
-- master: Cloud Firestore
-- realtime: Realtime Database
-
-### FEATURES ###
+### 특징 ###
+- 파이어베이스 인증 로그인
 - 1:1 and Group chat
-- Text, Image, File transfer
+- naverpapago 가능 언어 지원
 
-### INSTALLATION ###
-1. Clone this source from github (in android studio).
-2. Copy google-services.json to /app folder.
+![image](https://user-images.githubusercontent.com/39763880/118362558-e7170980-b5ca-11eb-8198-91d1cf52b72c.png)
+![image](https://user-images.githubusercontent.com/39763880/118362565-ea11fa00-b5ca-11eb-8116-b1b431a99725.png)
 
-   You can get google-services.json from [Firebase Console](https://support.google.com/firebase/answer/7015592?hl=en)
-   
-   OR
-   
-   in android studio, you can make with Tool > Firebase menu 
-  
-3. Run.
-  
-   If you see a message like "Please select Android SDK", modify gradle file and run sync now.
-
-
-4. To use push server(Google Cloud Messaging), you must put the key provided by Firebase in the request header(Authorization) in the sendGCM function in ChatActivity.java.
-
-### License ###
-GPL v3
